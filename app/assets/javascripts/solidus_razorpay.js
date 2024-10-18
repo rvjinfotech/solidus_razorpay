@@ -42,7 +42,7 @@ const intializeCheckout = () => {
     paymentMethodId: paymentMethodId
   });
 
-  return fetch(Spree.pathFor('store/api/initialize_checkout'), {
+  return fetch('store/api/initialize_checkout', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
