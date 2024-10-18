@@ -42,7 +42,7 @@ const intializeCheckout = () => {
     paymentMethodId: paymentMethodId
   });
 
-  return fetch('/api/initialize_checkout', {
+  return fetch(Spree.pathFor('store/api/initialize_checkout'), {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -67,7 +67,7 @@ const paymentSuccess = async (data) => {
     },
   });
 
-  return resp = await fetch('/api/checkouts/' + receipt + '/payments', {
+  return resp = await fetch('/store/api/checkouts/' + receipt + '/payments', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -78,7 +78,7 @@ const paymentSuccess = async (data) => {
 }
 
 const advanceOrder = async () => {
-  return fetch('/api/checkouts/' + receipt + '/advance', {
+  return fetch('/store/api/checkouts/' + receipt + '/advance', {
     method: "PUT",
     headers: {
       'Content-Type': 'application/json',
